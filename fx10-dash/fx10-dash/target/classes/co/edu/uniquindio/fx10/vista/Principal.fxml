@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="627.0" prefWidth="919.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.fx10.controlador.PrincipalController">
+
+    <children>
+
+        <!-- Título principal -->
+        <Label layoutX="426.0" layoutY="21.0" styleClass="title1" textFill="#181717">
+         </Label>
+
+        <!-- Botón Lista de Productos -->
+        <Button fx:id="btnListaProductos" layoutX="86.0" layoutY="80.0" mnemonicParsing="false" onAction="#onVerLista" text="List of products" textFill="#2bc456" />
+
+        <!-- Botón Limpiar Pantalla -->
+        <Button fx:id="btnLimpiar" layoutX="400.0" layoutY="80.0" mnemonicParsing="false" onAction="#onLimpiarPantalla" text="Clean screen " />
+
+        <!-- Botón Agregar Producto -->
+        <Button fx:id="btnAgregarProducto" layoutX="708.0" layoutY="80.0" mnemonicParsing="false" onAction="#onCrearProducto" text="add product" />
+
+        <!-- Contenedor dinámico -->
+        <AnchorPane fx:id="contentPane" layoutX="31.0" layoutY="140.0" prefHeight="450.0" prefWidth="860.0" />
+      <Label layoutX="433.0" layoutY="22.0" styleClass="title3" text="dashboard">
+      </Label>
+
+    </children>
+</AnchorPane>
