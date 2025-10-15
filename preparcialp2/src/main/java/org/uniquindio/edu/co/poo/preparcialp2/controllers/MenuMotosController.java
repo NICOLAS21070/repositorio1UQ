@@ -34,7 +34,7 @@ public class MenuMotosController {
         if (modelo.isEmpty()) return;
 
         sistema.registrarMoto(placa.get(), marca.get(), modelo.get());
-        txtSalida.appendText("✅ Moto registrada correctamente.\n");
+        txtSalida.appendText(" Moto registrada correctamente.\n");
     }
 
     @FXML
@@ -42,9 +42,9 @@ public class MenuMotosController {
         txtSalida.clear();
         List<Moto> motos = sistema.getMotos();
         if (motos.isEmpty()) {
-            txtSalida.appendText("⚠️ No hay motos registradas.\n");
+            txtSalida.appendText(" No hay motos registradas.\n");
         } else {
-            txtSalida.appendText("📋 LISTA DE MOTOS:\n");
+            txtSalida.appendText(" LISTA DE MOTOS:\n");
             for (Moto m : motos) {
                 txtSalida.appendText(" - " + m + "\n");
             }
@@ -60,9 +60,9 @@ public class MenuMotosController {
 
         boolean eliminado = sistema.eliminarMoto(placa.get());
         if (eliminado) {
-            txtSalida.appendText("🗑️ Moto eliminada correctamente.\n");
+            txtSalida.appendText("️ Moto eliminada correctamente.\n");
         } else {
-            txtSalida.appendText("⚠️ No se encontró una moto con esa placa.\n");
+            txtSalida.appendText("️ No se encontró una moto con esa placa.\n");
         }
     }
 
@@ -85,9 +85,9 @@ public class MenuMotosController {
 
         boolean modificado = sistema.modificarMoto(placa.get(), marca.get(), modelo.get());
         if (modificado) {
-            txtSalida.appendText("✏️ Moto modificada correctamente.\n");
+            txtSalida.appendText(" Moto modificada correctamente.\n");
         } else {
-            txtSalida.appendText("⚠️ No se encontró una moto con esa placa.\n");
+            txtSalida.appendText("️ No se encontró una moto con esa placa.\n");
         }
     }
 
@@ -104,6 +104,6 @@ public class MenuMotosController {
         if (color.isEmpty()) return;
 
         sistema.decorarMotoConColor(placa.get(), color.get());
-        txtSalida.appendText("🎨 Moto decorada con color: " + color.get() + "\n");
+        txtSalida.appendText(" Moto decorada con color: " + color.get() + "\n");
     }
 }

@@ -13,7 +13,7 @@ public class App extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/org/uniquindio/edu/co/poo/preparcialp2/MenuMotos.fxml"));
 
         Scene scene = new Scene(root);
-        stage.setTitle("🏍️ Sistema de Motos - Menú Principal");
+        stage.setTitle(" Sistema de Motos - Menú Principal");
         stage.setScene(scene);
         stage.show();
     }
