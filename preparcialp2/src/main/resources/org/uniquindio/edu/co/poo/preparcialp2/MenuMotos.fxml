@@ -6,22 +6,29 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/8"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.uniquindio.edu.co.poo.preparcialp2.controllers."
+            fx:controller="org.uniquindio.edu.co.poo.preparcialp2.controllers.MenuMotosController"
             prefWidth="700" prefHeight="500">
 
     <center>
-        <VBox spacing="15" alignment="CENTER" padding="20">
-            <Label text="🏍️  SISTEMA DE MOTOS" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+        <VBox fx:id="vboxCentro" spacing="15" alignment="CENTER">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="🏍️  SISTEMA DE MOTOS"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
 
             <Button fx:id="btnCrear" text="➕ Crear Moto" prefWidth="300" onAction="#crearMoto"/>
             <Button fx:id="btnListar" text="📋 Mostrar Motos" prefWidth="300" onAction="#mostrarMotos"/>
+            <Button fx:id="btnmodificar" text="✏️ Modificar Moto" prefWidth="300" onAction="#modificarMoto"/>
             <Button fx:id="btnDecorar" text="🎨 Decorar Moto" prefWidth="300" onAction="#decorarMoto"/>
             <Button fx:id="btnEliminar" text="🗑️ Eliminar Moto" prefWidth="300" onAction="#eliminarMoto"/>
-            <Button fx:id="btnBuscar" text="🔍 Buscar Moto" prefWidth="300" onAction="#buscarMoto"/>
 
             <Separator prefWidth="500"/>
 
-            <TextArea fx:id="txtSalida" promptText="Resultados del sistema..." prefWidth="500" prefHeight="200"/>
+
+            <TextArea fx:id="txtSalida" prefWidth="500" prefHeight="200" editable="false"
+                      promptText="Aquí se mostrarán las motos registradas..."/>
         </VBox>
     </center>
 

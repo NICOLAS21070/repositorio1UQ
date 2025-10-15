@@ -1,50 +1,52 @@
 package org.uniquindio.edu.co.poo.preparcialp2.Model;
 
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class SistemaMotosFacade {
 
-    private final BaseDatosMotos baseDatos;
-    private final MotoFactory factory;
-
-    public SistemaMotosFacade() {
-        this.baseDatos = BaseDatosMotos.getInstancia();
-        this.factory = new MotoFactory();
+    public void registrarMoto(String placa, String marca, String modelo) {
+        Moto moto = MotoFactory.crearMoto(placa, marca, modelo);
+        BaseDatosMotos.getInstancia().agregarMoto(moto);
     }
 
-    public Moto crearMoto(String marca, String modelo, String precio) {
-        return factory.crearMoto(marca, modelo, precio);
+    public List<Moto> getMotos() {
+        return BaseDatosMotos.getInstancia().getMotos();
     }
 
-    public void guardarMoto(Moto moto) {
-        baseDatos.agregarMoto(moto);
-    }
-
-    public List<Moto> obtenerMotos() {
-        return new ArrayList<>(baseDatos.getMotos());
-    }
-
-    public void eliminarMoto(Moto moto) {
-        baseDatos.getMotos().remove(moto);
-    }
-
-    public Moto buscarPorPlaca(String placa) {
-        for (Moto m : baseDatos.getMotos()) {
-            if (m.getPlaca().equalsIgnoreCase(placa)) {
-                return m;
-            }
+    public boolean eliminarMoto(String placa) {
+        Moto moto = buscarPorPlaca(placa);
+        if (moto != null) {
+            BaseDatosMotos.getInstancia().eliminarMoto(moto);
+            return true;
         }
-        return null;
+        return false;
+    }
+
+    public boolean modificarMoto(String placa, String nuevaMarca, String nuevoModelo) {
+        Moto moto = buscarPorPlaca(placa);
+        if (moto != null) {
+            moto.setMarca(nuevaMarca);
+            moto.setModelo(nuevoModelo);
+            return true;
+        }
+        return false;
     }
 
     public void decorarMotoConColor(String placa, String color) {
         Moto moto = buscarPorPlaca(placa);
         if (moto != null) {
-            MotoColor motoColor = new MotoColor(moto, color);
-            baseDatos.getMotos().remove(moto);
-            baseDatos.agregarMoto(motoColor);
+            MotoColor decorada = new MotoColor(moto, color);
+            BaseDatosMotos.getInstancia().eliminarMoto(moto);
+            BaseDatosMotos.getInstancia().agregarMoto(decorada);
         }
+    }
+
+    private Moto buscarPorPlaca(String placa) {
+        for (Moto m : BaseDatosMotos.getInstancia().getMotos()) {
+            if (m.getPlaca().equalsIgnoreCase(placa)) {
+                return m;
+            }
+        }
+        return null;
     }
 }

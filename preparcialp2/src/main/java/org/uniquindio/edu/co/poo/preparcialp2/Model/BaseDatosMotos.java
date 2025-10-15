@@ -46,6 +46,6 @@ public class BaseDatosMotos {
     }
 
     public List<Moto> getMotos() {
-        return new ArrayList<>(motos);
+        return motos; // ✅ devolvemos la lista real
     }
 }
